@@ -132,7 +132,8 @@ class LottieView extends React.Component {
     const { style, source, autoSize, ...rest } = this.props;
 
     const sourceName = typeof source === 'string' ? source : undefined;
-    const sourceJson = typeof source === 'string' ? undefined : JSON.stringify(source);
+    const sourceURL = typeof source === 'object' && source.uri ? source.uri : undefined;
+    const sourceJson = typeof source === 'string' || sourceURL ? undefined : JSON.stringify(source);
 
     const aspectRatioStyle = sourceJson ? { aspectRatio: source.w / source.h } : undefined;
 
@@ -150,6 +151,7 @@ class LottieView extends React.Component {
           style={[aspectRatioStyle, sizeStyle || { width: '100%', height: '100%' }, style]}
           sourceName={sourceName}
           sourceJson={sourceJson}
+          sourceURL={sourceURL}
         />
       </View>
     );

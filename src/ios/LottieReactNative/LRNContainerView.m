@@ -60,7 +60,17 @@
   }
 }
 
+- (void)setSourceURL:(NSString *)animationURL {
+    if (!animationURL) {
+        return;
+    }
+    [self replaceAnimationView:[[LOTAnimationView alloc] initWithContentsOfURL:[NSURL URLWithString:animationURL]]];
+}
+
 - (void)setSourceJson:(NSString *)jsonString {
+  if (!jsonString) {
+        return;
+  }
   NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
   NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData
                                                        options:kNilOptions
@@ -69,6 +79,9 @@
 }
 
 - (void)setSourceName:(NSString *)name {
+  if (!name) {
+    return;
+  }
   [self replaceAnimationView:[LOTAnimationView animationNamed:name]];
 }
 

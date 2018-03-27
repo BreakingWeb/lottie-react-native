@@ -25,6 +25,7 @@
 @property (nonatomic, assign) CGFloat progress;
 @property (nonatomic, strong) NSDictionary *sourceJson;
 @property (nonatomic, strong) NSString *sourceName;
+@property (nonatomic, strong) NSString *sourceURL;
 
 - (void)play;
 - (void)playFromFrame:(NSNumber *)startFrame
