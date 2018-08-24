@@ -97,6 +97,18 @@ class LottieAnimationViewManager extends SimpleViewManager<LottieAnimationView> 
     }
   }
 
+  @ReactProp(name = "sourceURL")
+  public void setSourceURL(LottieAnimationView view, String url) {
+    try {
+        view.setAnimationFromUrl(url);
+    } catch (Exception e) {
+      // TODO: expose this to the user better. maybe an `onError` event?
+      Log.e(TAG,"setSourceURLError", e);
+    }
+  }
+
+  
+
   @ReactProp(name = "resizeMode")
   public void setResizeMode(LottieAnimationView view, String resizeMode) {
     if ("cover".equals(resizeMode)) {
