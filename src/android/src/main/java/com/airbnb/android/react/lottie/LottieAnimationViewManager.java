@@ -108,7 +108,7 @@ class LottieAnimationViewManager extends SimpleViewManager<LottieAnimationView> 
   @ReactProp(name = "sourceURL")
   public void setSourceURL(LottieAnimationView view, String url) {
     try {
-      url = url.replace("file://", "")
+      url = url.replace("file://", "");
       InputStream fileStream = new FileInputStream(url);
       BufferedReader r = new BufferedReader(new InputStreamReader(fileStream));
       StringBuilder total = new StringBuilder();
